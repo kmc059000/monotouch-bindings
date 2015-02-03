@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
-using MonoTouch.Foundation;
-using MonoTouch.ObjCRuntime;
+using Foundation;
+using ObjCRuntime;
 
 namespace HockeyApp
 {
@@ -49,7 +49,7 @@ namespace HockeyApp
 			ConvertToNsExceptionAndAbort (exception);
 		}
 
-		[DllImport(MonoTouch.Constants.FoundationLibrary, EntryPoint = "NSGetUncaughtExceptionHandler")]
+		[DllImport(Constants.FoundationLibrary, EntryPoint = "NSGetUncaughtExceptionHandler")]
 		static extern IntPtr NSGetUncaughtExceptionHandler();
 
 		private delegate void ReporterDelegate(IntPtr ex);
@@ -75,8 +75,11 @@ namespace HockeyApp
 			msg = msg.Replace("%", "%%");
 			var nse = new NSException(name, msg, null);
 			var sel = new Selector("raise");
-			Messaging.void_objc_msgSend(nse.Handle, sel.Handle);
+			void_objc_msgSend(nse.Handle, sel.Handle);
 		}
+
+        [DllImport(Constants.ObjectiveCLibrary, EntryPoint="objc_msgSend")]
+        static extern void void_objc_msgSend(IntPtr deviceHandle, IntPtr setterHandle);
 	}
 }
 

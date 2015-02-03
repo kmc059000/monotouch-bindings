@@ -4,11 +4,13 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{64574EFC-9C95-4764-ABAC-6A9A721CB366}</ProjectGuid>
-    <ProjectTypeGuids>{F5B4F3BC-B597-4E2B-B552-EF5D8A32436F};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectTypeGuids>{8FFB629D-F513-41CE-95D2-7ECE97B6EEEC};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <RootNamespace>HockeyApp.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AssemblyName>HockeyApp.iOS</AssemblyName>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,7 +34,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="monotouch" />
+    <Reference Include="Xamarin.iOS">
+      <HintPath>..\..\..\..\..\..\..\..\Library\Frameworks\Xamarin.iOS.framework\Versions\8.6.0.51\lib\mono\Xamarin.iOS\Xamarin.iOS.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -44,7 +48,7 @@
   <ItemGroup>
     <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Xamarin.ObjcBinding.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
   <ItemGroup>
     <ObjcBindingNativeLibrary Include="HockeySDK.a" />
   </ItemGroup>

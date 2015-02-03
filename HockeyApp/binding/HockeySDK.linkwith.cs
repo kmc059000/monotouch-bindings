@@ -1,5 +1,5 @@
 using System;
-using MonoTouch.ObjCRuntime;
+using ObjCRuntime;
 
 /*
 Required Linking Frameworks:
@@ -14,4 +14,4 @@ UIKit.framework
 */
 
 //CoreGraphics CoreText Foundation QuartzCore Security SystemConfiguration UIKit
-[assembly: LinkWith ("HockeySDK.a", LinkTarget.ArmV7 | LinkTarget.ArmV7s | LinkTarget.Simulator, ForceLoad = true, Frameworks = "CoreGraphics CoreText Foundation QuartzCore Security SystemConfiguration UIKit")]
+[assembly: LinkWith ("HockeySDK.a", LinkTarget.ArmV7 | LinkTarget.ArmV7s | LinkTarget.Arm64 | LinkTarget.Simulator64 | LinkTarget.Simulator, ForceLoad = true, Frameworks = "CoreGraphics CoreText Foundation QuartzCore Security SystemConfiguration UIKit")]
